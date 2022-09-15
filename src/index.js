@@ -1,28 +1,32 @@
-import FilmotecaTradingAPI from './js/filmotecaTraidingAPI';
-import { formEl } from './js/const-names';
-import renderTraidinfFilms from './js/renderTraidingFilms';
-import OnlyScroll from 'only-scrollbar';
-import Notiflix from 'notiflix';
+// import FilmotecaTradingAPI from './js/filmotecaTraidingAPI';
+// import { formEl } from './js/const-names';
+// import renderTraidinfFilms from './js/renderTraidingFilms';
+// import OnlyScroll from 'only-scrollbar';
+// import Notiflix from 'notiflix';
 
-const filmotecaTraidingAPI = new FilmotecaTradingAPI();
+// const scroll = new OnlyScroll(window, {
+//   damping: 0.4,
+// });
 
-const scroll = new OnlyScroll(window, {
-  damping: 0.5,
-});
+// const filmotecaTraidingAPI = new FilmotecaTradingAPI();
 
-formEl.addEventListener('submit', onInputSearch);
+// const scroll = new OnlyScroll(window, {
+//   damping: 0.5,
+// });
 
-function onInputSearch(event) {
-  try {
-    event.preventDefault();
-    filmotecaTraidingAPI.searchQuery =
-      event.currentTarget.elements.searchQuery.value.trim();
-    filmotecaTraidingAPI
-      .fetchTtaidingFilms()
-      .then(({ data }) => renderTraidinfFilms(data));
-  } catch (onFetchError) {}
-}
+// formEl.addEventListener('submit', onInputSearch);
 
-function onFetchError(error) {
-  Notiflix.Notify.warning('Oops, there is no country with that name');
-}
+// function onInputSearch(event) {
+//   try {
+//     event.preventDefault();
+//     filmotecaTraidingAPI.searchQuery =
+//       event.currentTarget.elements.searchQuery.value.trim();
+//     filmotecaTraidingAPI
+//       .fetchTtaidingFilms()
+//       .then(({ data }) => renderTraidinfFilms(data));
+//   } catch (onFetchError) {}
+// }
+
+// function onFetchError(error) {
+//   Notiflix.Notify.warning('Oops, there is no country with that name');
+// }

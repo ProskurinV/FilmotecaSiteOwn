@@ -1,26 +1,18 @@
-<section class="main-container">
+<section class="main-section">
   <div class="container">
     <ul class="films">
-      <!-- <li class="film__item film__border">
-        <article class="film__card">
-          <div class="film__card-thumb">
-            <img
-              srcset="
-                ./images/images-portfolio/img1.jpg     370w,
-                ./images/images-portfolio/img1-x2.jpg  740w,
-                ./images/images-portfolio/img1-x3.jpg 1110w
-              "
-              src="./images/images-portfolio/img1.jpg"
-              alt="набор фото"
-              sizes="(min-width: 1200px) 33vw, (min-width: 768px) 50vw, (min-width: 480px) 100vw, 100vw"
-            />
+      <li class="film__item film__border">
+        <div class="film__card-thumb">
+          <img src="#" alt="film" />
+        </div>
+        <div class="film__card-content">
+          <h2 class="film__title">{title}</h2>
+          <div class="film__description--set">
+            <p class="film__genre set__item">{genre_ids}</p>
+            <p class="film__year set__item">{release_date}</p>
           </div>
-          <div class="film__card-content">
-            <h2 class="film__title">${title}</h2>
-            <p class="film__genre film__year">${genre_ids} ${release_date}</p>
-          </div>
-        </article>
-      </li> -->
+        </div>
+      </li>
     </ul>
   </div>
 </section>

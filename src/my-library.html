@@ -2,8 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Filmoteca</title>
+    <title>My Library</title>
     <link rel="stylesheet" href="./sass/index.scss" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -13,28 +14,18 @@
     />
   </head>
   <body>
+    <!-- <include src="./partials/modal-film.html"></include> -->
+
     <div class="wrapper">
-      <header>
-        <!-- <include src="./partials/btnUp.html"></include> -->
-        <include src="./partials/header.html"></include>
-      </header>
+      <include src="./partials/myLibraryHeader.html"></include>
+
       <main class="content">
-        <!-- <include src="./partials/cards-container.html"></include>
-        <include src="./partials/modal-film.html"></include> -->
+        <!-- <include src="./partials/library-cards-container.html"></include> -->
       </main>
       <footer>
         <include src="./partials/footer.html"></include>
         <!-- <include src="./partials/foter-modal.html"></include> -->
       </footer>
     </div>
-
-    <!-- ❗️❗️❗️ Add partials like so for every page -->
-
-    <!-- <include src="./partials/header.html"></include> -->
-    <!-- <include src="./partials/mainSection.html"></include> -->
-    <!-- <include src="./my-library.html"></include> -->
-    <!-- <include src="./partials/myLibraryHeader.html"></include> -->
-
-    <script type="module" src="./index.js"></script>
   </body>
 </html>

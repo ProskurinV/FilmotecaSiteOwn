@@ -1,25 +1,38 @@
-<section class="header">
+<header class="header">
   <div class="container">
-    <a href="#" class="header__logo"></a>
-    <nav class="header__nav">
-      <ul class="header__nav-list">
-        <li class="header__nav-list--item">Home</li>
-        <li class="header__nav-list--item">My library</li>
+    <div class="navigation__header">
+      <a class="logo__link" href="./index.html">
+        <svg class="logo" width="24" height="24">
+          <use href="./images/my-library/symbol-defs.svg#icon-film-1"></use>
+        </svg>
+        <span class="logo__part">Filmoteka</span></a
+      >
+      <ul class="nav__list">
+        <li class="nav__item">
+          <a id="Home" class="nav__link current" href="./index.html">Home</a>
+        </li>
+        <li class="nav__item">
+          <a id="library" class="nav__link" href="./my-library.html"
+            >my library</a
+          >
+        </li>
       </ul>
-
-      <form id="search-form">
+    </div>
+    <div class="search">
+      <form class="search__form">
         <input
+          class="search__input"
           type="text"
-          id="search-movie"
-          name="search-film"
+          name="searchQuery"
+          autocomplete="off"
           placeholder="Movie search"
         />
+        <button class="btn-search" type="submit">
+          <svg class="search-logo" width="12" height="12">
+            <use href="images/mainHeader/symbol-defs.svg#icon-search2"></use>
+          </svg>
+        </button>
       </form>
-
-      <!-- <div class="header__btn">
-        <button type="button" class="header__btn--item"></button>
-        <button type="button" class="header__btn--item"></button>
-      </div> -->
-    </nav>
+    </div>
   </div>
-</section>
+</header>
