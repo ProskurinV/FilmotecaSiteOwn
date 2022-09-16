@@ -1,4 +1,4 @@
-const formEl = document.querySelector('#search-form');
-const traidingFilmContainer = document.querySelector('.films');
+const formEl = document.querySelector('.search__form');
+const traidingFilmContainer = document.querySelector('.filmsContainer');
 
 export { formEl, traidingFilmContainer };

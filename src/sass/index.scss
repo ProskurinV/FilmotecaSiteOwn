@@ -1,8 +1,10 @@
-@import './common';
-@import './container';
-@import './reset';
-@import './my-library';
-// @import './mainSection';
-@import './header';
-@import './myLibraryHeader';
-@import './footer';
+@import './utils/common';
+@import './utils/container';
+@import './utils/reset';
+@import './allStyle/my-library';
+@import './allStyle/mainSection';
+@import './allStyle/header';
+@import './allStyle/myLibraryHeader';
+@import './allStyle/footer';
+@import './allStyle/loadMoreBtn';
+@import './allStyle/upBtn';
