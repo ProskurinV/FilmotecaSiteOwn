@@ -14,8 +14,7 @@ function renderTraidinfFilms({ results }) {
         genre_ids,
         release_date,
       }) => `<div class="film__card">
-            <img scr="${IMG_URL + poster_path}" alt="${title}"
-            />
+                <img src="${IMG_URL + poster_path}" alt="${title}" />
             <div class="film__card-description">
                   <h2 class="film__title">${title}</h2>
                   <p class="film__set film__genre film__year">${genre_ids} ${release_date}</p>
