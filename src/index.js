@@ -1,5 +1,5 @@
 import FilmotecaTradingAPI from './js/filmotecaTraidingAPI';
-import { formEl } from './js/const-names';
+import { formEl, upBtn } from './js/const-names';
 import renderTraidinfFilms from './js/renderTraidingFilms';
 import OnlyScroll from 'only-scrollbar';
 import Notiflix from 'notiflix';
@@ -11,6 +11,7 @@ const scroll = new OnlyScroll(window, {
 });
 
 formEl.addEventListener('submit', onInputSearch);
+// upBtn.addEventListener('click', topFunction);
 
 function onInputSearch(event) {
   event.preventDefault();

@@ -4,13 +4,13 @@ const BASE_URL = 'https://api.themoviedb.org/3/';
 const paramsTraiding = 'trending/movie/week?';
 const SEARCH_URL = 'search/movie?&query=';
 const API_KEY = 'api_key=07a0b7347da6bb0b9ce66f00964e6e58';
+const IMG_URL = 'https://image.tmdb.org/t/p/w500';
 
 export default class FilmotecaTradingAPI {
   constructor() {
     this.searchQuery = '';
     this.page = 1;
     this.perPage = 20;
-    this.films = [];
   }
 
   fetchTraidingFilms() {
