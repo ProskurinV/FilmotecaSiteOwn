@@ -3,6 +3,7 @@ import { formEl, upBtn } from './js/const-names';
 import renderTraidinfFilms from './js/renderTraidingFilms';
 import OnlyScroll from 'only-scrollbar';
 import Notiflix from 'notiflix';
+import { topFunction } from './js/upBtn';
 
 const filmotecaTraidingAPI = new FilmotecaTradingAPI();
 
@@ -11,14 +12,14 @@ const scroll = new OnlyScroll(window, {
 });
 
 formEl.addEventListener('submit', onInputSearch);
-// upBtn.addEventListener('click', topFunction);
+upBtn.addEventListener('click', topFunction);
 
 function onInputSearch(event) {
   event.preventDefault();
   filmotecaTraidingAPI.searchQuery =
     event.currentTarget.elements.searchQuery.value.trim();
   filmotecaTraidingAPI.resetPage();
-  filmotecaTraidingAPI.fetchTraidingFilms().then(({ data }) => {
+  filmotecaTraidingAPI.fetchSearchFilms().then(({ data }) => {
     renderTraidinfFilms(data);
   });
 }

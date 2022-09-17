@@ -13,13 +13,17 @@ function renderTraidinfFilms({ results }) {
         title,
         genre_ids,
         release_date,
+        vote_average,
       }) => `<div class="film__card">
-                <img src="${IMG_URL + poster_path}" alt="${title}" />
-            <div class="film__card-description">
+                <img class="film__poster" src="${
+                  IMG_URL + poster_path
+                }" alt="${title}" />
+                <div class="film__card-description">
                   <h2 class="film__title">${title}</h2>
-                  <p class="film__set film__genre film__year">${genre_ids} ${release_date}</p>
+                  <p class="film__set">${genre_ids} | ${release_date}<span class="film__vote">${vote_average}</span></p>
+                  
                 </div>
-                  </div>`
+              </div>`
     )
     .join('');
   traidingFilmContainer.insertAdjacentHTML('beforeend', markupTraidingFilms);
