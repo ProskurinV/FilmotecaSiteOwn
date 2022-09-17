@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 const BASE_URL = 'https://api.themoviedb.org/3/';
 const paramsTraiding = 'trending/movie/week?';
 const SEARCH_URL = 'search/movie?&query=';
@@ -8,30 +10,31 @@ export default class FilmotecaTradingAPI {
     this.searchQuery = '';
     this.page = 1;
     this.perPage = 20;
+    this.films = [];
   }
 
-  fetchTtaidingFilms() {
-    fetch(`${BASE_URL}${paramsTraiding}${API_KEY}&page=${this.page}`).then(
-      response =>
-        response.json().then(data => {
-          console.log(data);
-          this.page += 1;
-        })
+  fetchTraidingFilms() {
+    const response = axios.get(
+      `${BASE_URL}${paramsTraiding}${API_KEY}&page=${this.page}`
     );
+    this.incrementPage();
+    return response;
   }
 
   fetchSearchFilms() {
-    fetch(`${BASE_URL}${SEARCH_URL}${this.searchQuery}&${API_KEY}`).then(
-      response =>
-        response.json().then(data => {
-          console.log(data);
-          this.page += 1;
-        })
+    const response = axios.get(
+      `${BASE_URL}${SEARCH_URL}${this.searchQuery}&${API_KEY}&page=${this.page}`
     );
+    this.incrementPage();
+    return response;
   }
 
   resetPage() {
     this.page = 1;
+  }
+
+  incrementPage() {
+    this.page += 1;
   }
 
   get query() {

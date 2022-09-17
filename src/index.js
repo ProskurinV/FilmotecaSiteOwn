@@ -17,16 +17,20 @@ function onInputSearch(event) {
   filmotecaTraidingAPI.searchQuery =
     event.currentTarget.elements.searchQuery.value.trim();
   filmotecaTraidingAPI.resetPage();
-  filmotecaTraidingAPI.fetchTtaidingFilms();
+  filmotecaTraidingAPI.fetchTraidingFilms().then(({ data }) => {
+    renderTraidinfFilms(data);
+  });
 }
 
-function onLoadMore() {
-  filmotecaTraidingAPI.fetchTtaidingFilms();
-}
+// function onLoadMore() {
+//   filmotecaTraidingAPI.fetchSearchFilms().then(results => {
+//     console.log(results);
+//   });
+// }
 
-function onFetchError(error) {
-  Notiflix.Notify.warning('Oops, there is no country with that name');
-}
+// function onFetchError(error) {
+//   Notiflix.Notify.warning('Oops, there is no country with that name');
+// }
 
 // ===========================================================
 // import NewsApiService from './js/filmotecaTraidingAPI';

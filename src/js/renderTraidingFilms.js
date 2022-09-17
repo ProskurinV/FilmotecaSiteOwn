@@ -4,29 +4,18 @@ export default function renderTraidinfFilms({ results }) {
   const markupTraidingFilms = results
     .map(
       ({
+        poster_path,
         title,
         genre_ids,
         release_date,
-      }) => `<li class="film__item film__border">
-        <article class="film__card">
-          <div class="film__card-thumb">
-            <img
-              srcset="
-                ./images/images-portfolio/img1.jpg     370w,
-                ./images/images-portfolio/img1-x2.jpg  740w,
-                ./images/images-portfolio/img1-x3.jpg 1110w
-              "
-              src="./images/images-portfolio/img1.jpg"
-              alt="набор фото"
-              sizes="(min-width: 1200px) 33vw, (min-width: 768px) 50vw, (min-width: 480px) 100vw, 100vw"
+      }) => `<div class="film__card">
+            <img scr="${poster_path}" alt="${title}"
             />
-          </div>
-          <div class="film__card-content">
-            <h2 class="film__title">${title}</h2>
-            <p class="film__genre film__year">${genre_ids} ${release_date}</p>
-          </div>
-        </article>
-      </li>`
+            <div class="film__card-description">
+                  <h2 class="film__title">${title}</h2>
+                  <p class="film__set film__genre film__year">${genre_ids} ${release_date}</p>
+                </div>
+                  </div>`
     )
     .join('');
   traidingFilmContainer.insertAdjacentHTML('beforeend', markupTraidingFilms);
