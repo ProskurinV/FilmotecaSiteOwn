@@ -1,10 +1,6 @@
 import { traidingFilmContainer } from './const-names';
 
-// const getPoster = poster => {
-//   return `https://image.tmdb.org/t/p/w500${poster}`;
-// };
-
-function renderTraidinfFilms({ results }) {
+function renderTraidingfFilms({ results }) {
   const IMG_URL = 'https://image.tmdb.org/t/p/w500';
   const markupTraidingFilms = results
     .map(
@@ -28,4 +24,4 @@ function renderTraidinfFilms({ results }) {
     .join('');
   traidingFilmContainer.insertAdjacentHTML('beforeend', markupTraidingFilms);
 }
-export default renderTraidinfFilms;
+export default renderTraidingfFilms;
