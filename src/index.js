@@ -1,6 +1,7 @@
 import FilmotecaTradingAPI from './js/filmotecaTraidingAPI';
-import { formEl, upBtn, hugeFilmContainer, filmCard } from './js/const-names';
+import { formEl, upBtn, filmCard } from './js/const-names';
 import renderTraidingfFilms from './js/renderTraidingFilms';
+import renderHugeCardFilm from './js/renderHugeCardFilm';
 import OnlyScroll from 'only-scrollbar';
 import Notiflix from 'notiflix';
 import { topFunction } from './js/upBtn';
@@ -34,6 +35,30 @@ function onInputSearch(event) {
   });
 }
 
+function onHugeFilmClick(event) {
+  event.preventDefault();
+  filmotecaTraidingAPI.fetchSearchFilms().then(({ data }) => {
+    renderHugeCardFilm(data);
+  });
+}
+
+export function getGenres() {
+  filmotecaTraidingAPI.fetchGenres().then(({ data }) => {
+    const genresArr = [];
+
+    data.genres.forEach(genre => {
+      if (genre.name) {
+        genresArr.push(genre.name);
+      }
+    });
+
+    const genre2 = genresArr.slice(0, 2);
+    const genreStr = genre2.toString();
+    const firstTwo = genreStr.split('');
+  });
+  return data.genre.name;
+}
+
 // export function getGenres(genres, el) {
 //   let genre = [];
 //   for (const id of el.genre_ids) {
@@ -52,21 +77,6 @@ function onInputSearch(event) {
 //     : '';
 // }
 
-// export function getGenres() {
-//   filmotecaTraidingAPI.fetchGenres().then(({ data }) => {
-//     data.genres.map(genre => {
-//       return genre.name;
-//     });
-//   });
-// }
-
-// function onHugeFilmClick(event) {
-//   event.preventDefault();
-//   filmotecaTraidingAPI.fetchSearchFilms().then(({ data }) => {
-//     renderHugeCardFilm(data);
-//   });
-// }
-
 // function onLoadMore() {
 //   filmotecaTraidingAPI.fetchSearchFilms().then(results => {
 //     console.log(results);
@@ -78,19 +88,3 @@ function onInputSearch(event) {
 // }
 
 // ===========================================================
-// import NewsApiService from './js/filmotecaTraidingAPI';
-
-// const form = document.querySelector('.search__form');
-
-// const newsApiService = new NewsApiService();
-
-// form.addEventListener('submit', onSearch);
-
-// function onSearch(event) {
-//   event.preventDefault();
-//   console.dir(event.currentTarget.elements.searchQuery.value);
-
-//   const searchQuery = event.currentTarget.elements.searchQuery.value;
-
-//   newsApiService.fetchNews(searchQuery);
-// }

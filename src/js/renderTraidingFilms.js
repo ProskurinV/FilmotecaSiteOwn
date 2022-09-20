@@ -1,7 +1,11 @@
 import { traidingFilmContainer } from './const-names';
 
+import { getGenres } from '../index';
+
 function renderTraidingfFilms({ results }) {
   const IMG_URL = 'https://image.tmdb.org/t/p/w500';
+  getGenres();
+
   const markupTraidingFilms = results
     .map(
       ({
