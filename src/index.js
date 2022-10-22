@@ -12,6 +12,15 @@ const scroll = new OnlyScroll(window, {
   damping: 0.5,
 });
 
+filmotecaTraidingAPI.fetchTraidingFilms().then(({ data }) => {
+  if (data.total_results === 0) {
+    Notiflix.Notify.info(
+      `Sorry, there are no films matching your ${filmotecaTraidingAPI.searchQuery}. Please try again.`
+    );
+  }
+  renderTraidingfFilms(data);
+});
+
 formEl.addEventListener('submit', onInputSearch);
 upBtn.addEventListener('click', topFunction);
 // filmCard.addEventListener('click', onHugeFilmClick);
@@ -20,9 +29,9 @@ function onInputSearch(event) {
   event.preventDefault();
   filmotecaTraidingAPI.searchQuery =
     event.currentTarget.elements.searchQuery.value.trim();
-  // if (filmotecaTraidingAPI.searchQuery = '') {
-  //   return Notiflix.Notify.warning('Write something');
-  // }
+  if ((filmotecaTraidingAPI.searchQuery = '')) {
+    return Notiflix.Notify.warning('Write something');
+  }
 
   filmotecaTraidingAPI.resetPage();
   filmotecaTraidingAPI.fetchTraidingFilms().then(({ data }) => {
@@ -42,22 +51,22 @@ function onHugeFilmClick(event) {
   });
 }
 
-export function getGenres() {
-  filmotecaTraidingAPI.fetchGenres().then(({ data }) => {
-    const genresArr = [];
+// export function getGenres() {
+//   filmotecaTraidingAPI.fetchGenres().then(({ data }) => {
+//     const genresArr = [];
 
-    data.genres.forEach(genre => {
-      if (genre.name) {
-        genresArr.push(genre.name);
-      }
-    });
+//     data.genres.forEach(genre => {
+//       if (genre.name) {
+//         genresArr.push(genre.name);
+//       }
+//     });
 
-    const genre2 = genresArr.slice(0, 2);
-    const genreStr = genre2.toString();
-    const firstTwo = genreStr.split('');
-  });
-  return data.genre.name;
-}
+//     const genre2 = genresArr.slice(0, 2);
+//     const genreStr = genre2.toString();
+//     const firstTwo = genreStr.split('');
+//   });
+//   return data.genre.name;
+// }
 
 // export function getGenres(genres, el) {
 //   let genre = [];
@@ -77,14 +86,14 @@ export function getGenres() {
 //     : '';
 // }
 
-// function onLoadMore() {
-//   filmotecaTraidingAPI.fetchSearchFilms().then(results => {
-//     console.log(results);
-//   });
-// }
+function onLoadMore() {
+  filmotecaTraidingAPI.fetchSearchFilms().then(results => {
+    console.log(results);
+  });
+}
 
-// function onFetchError(error) {
-//   Notiflix.Notify.warning('Oops, there is no country with that name');
-// }
+function onFetchError(error) {
+  Notiflix.Notify.warning('Oops, there is no country with that name');
+}
 
 // ===========================================================
